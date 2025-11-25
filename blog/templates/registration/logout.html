@@ -1,0 +1,22 @@
+
+
+
+<!-- {% extends 'blog/base.html' %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<h2>Login</h2>
+<form method="post" action="{% url 'logout' %}">
+  {% csrf_token %}
+  <button type="submit">Logout</button>
+</form>
+{% endblock %} -->
+
+{% extends 'blog/base.html' %}
+{% block title %}Logged Out{% endblock %}
+{% block content %}
+  <form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <!-- <h2>You have been logged out.</h2> -->
+    <p><a href="{% url 'login' %}">Login</a></p>
+  </form>
+{% endblock %}

@@ -1,0 +1,47 @@
+/* unique style — layout, colors, fonts */
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: linear-gradient(120deg,#f6f9ff,#d3baa3);
+  color: #1b2330;
+  margin: 0;
+}
+
+.site-header {
+  padding: 2rem;
+  background: linear-gradient(90deg,#2a7f8f,#6ec6b2);
+  color: white;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+.container {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+.sidebar {
+  width: 220px;
+  background: rgb(206, 194, 194);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(30,40,50,0.06);
+  }
+
+.content {
+  flex: 1;
+  background: white;
+  padding: 1.25rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(30,40,50,0.06);
+}
+
+.post-list h3 { margin: 0.25rem 0; }
+.meta { font-size: 0.9rem; color: #667788; }
+
+.pagination { margin-top: 1rem; display:flex; gap: 1rem; align-items:center; }
+.site-footer { text-align:center; padding:1rem; color:#6b7280; }
+
+#logout-form{
+  display: inline;
+}

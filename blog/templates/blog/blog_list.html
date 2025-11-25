@@ -1,0 +1,33 @@
+{% extends 'blog/base.html' %}
+{% block title %}All Posts{% endblock %}
+
+{% block content %}
+<h2>All blog posts</h2>
+<ul class="post-list">
+  {% for post in page_obj.object_list %}
+    <li>
+      <h3><a href="{% url 'blog:blog_detail' post.pk %}">{{ post.title }}</a></h3>
+      <p class="meta">
+      {% if post.author %}
+        By <a href="{% url 'blog:blogger_detail' post.author.pk %}">{{ post.author.name }}</a>
+      {% else %}
+        By Unknown Author
+      {% endif %}
+      — {{ post.created_at|date:"M j, Y H:i" }}
+      </p>
+    </li>
+  {% empty %}
+    <li>No posts yet.</li>
+  {% endfor %}
+</ul>
+
+<div class="pagination">
+  {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+  {% endif %}
+  <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+  {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}">Next</a>
+  {% endif %}
+</div>
+{% endblock %}

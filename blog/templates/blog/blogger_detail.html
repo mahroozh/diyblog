@@ -1,0 +1,25 @@
+{% extends 'blog/base.html' %}
+{% block title %}{{ blogger.name }}{% endblock %}
+{% block content %}
+<h2>{{ blogger.name }}</h2>
+
+<div class="bio">
+  <p>{{ blogger.bio|default:"No bio provided." }}</p>
+</div>
+
+<h3>Posts by {{ blogger.name }}</h3>
+<ul>
+  {% for p in posts %}
+    <li>
+      <a href="{% url 'blog:blog_detail' p.author.pk %}">
+          {{ p.title }}
+      </a>
+      — {{ p.created_at|date:"M j, Y" }}
+    </li>
+  {% empty %}
+    <li>No posts by this author.</li>
+  {% endfor %}
+</ul>
+{% endblock %}
+
+

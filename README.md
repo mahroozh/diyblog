@@ -1,2 +1,2 @@
 # diyblog
-diyblog mini blog
+diyblog
